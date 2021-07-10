@@ -69,29 +69,24 @@ export function solveApi(puzzle){
 export function checkApi(puzzle, coordinate, value){
     if(!puzzle || !coordinate || !value){
         return ({error: 'Required field(s) missing' });
-        return;
       }
 
       if(puzzle.length !== 81){
         return ({ error: 'Expected puzzle to be 81 characters long' });
-        return;
       }
 
       // change by regex latter
       for(let i=0;i<81;i++)
         if(puzzle[i] !== '.' && puzzle[i]*1 != puzzle[i]){
           return ({ error: 'Invalid characters in puzzle' });
-          return;
         } 
 
       if(coordinate[0] < 'A' || coordinate[0] > 'I' || Number(coordinate[1]) < 1 || Number(coordinate[1]) > 9 || coordinate.length !== 2){
         return ({ error: 'Invalid coordinate'});
-        return;
       }
 
       if(value < '1' || value > '9'){
         return ({ error: 'Invalid value' });
-        return;
       }
 
       const solution = solve(puzzle);
@@ -103,7 +98,6 @@ export function checkApi(puzzle, coordinate, value){
 
       if(value == solution[9*row + col]){
         return ({valid: true})
-        return;
       }
 
       const conflicts = [];

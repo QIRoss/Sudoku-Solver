@@ -59,23 +59,24 @@ suite('UnitTests', () => {
             assert.equal(solver.checkApi(input, 'A1', 3).conflict[0], 'region');
             done();
         });
+    });
 
-        test('Valid puzzle strings pass the solver', done => {
-            const input = '1.5..2.84..63.12.7.2..5.....9..1....8.2.3674.3.7.2..9.47...8..1..16....926914.37.';
-            assert.equal(solver.solveApi(input).solution, '135762984946381257728459613694517832812936745357824196473298561581673429269145378');
-            done();
-        });
 
-        test('Invalid puzzle strings fail the solver', done => {
-            const input = '..9..5.1.85.4....24322.....1...69.83.9.....6.62.71...9......1945....4.37.4.3..6..';
-            assert.equal(solver.solveApi(input).error, "Puzzle cannot be solved" );
-            done();
-        });
+    test('Valid puzzle strings pass the solver', done => {
+        const input = '1.5..2.84..63.12.7.2..5.....9..1....8.2.3674.3.7.2..9.47...8..1..16....926914.37.';
+        assert.equal(solver.solveApi(input).solution, '135762984946381257728459613694517832812936745357824196473298561581673429269145378');
+        done();
+    });
 
-        test('Solver returns the expected solution for an incomplete puzzle', done => {
-            const input = '1.5..2.84..63.12.7.2..5.....9..1....8.2.3674.3.7.2..9.47...8..1..16....926914.37.';
-            assert.equal(solver.solveApi(input).solution, '135762984946381257728459613694517832812936745357824196473298561581673429269145378');
-            done();
-        });
+    test('Invalid puzzle strings fail the solver', done => {
+        const input = '..9..5.1.85.4....24322.....1...69.83.9.....6.62.71...9......1945....4.37.4.3..6..';
+        assert.equal(solver.solveApi(input).error, "Puzzle cannot be solved" );
+        done();
+    });
+
+    test('Solver returns the expected solution for an incomplete puzzle', done => {
+        const input = '1.5..2.84..63.12.7.2..5.....9..1....8.2.3674.3.7.2..9.47...8..1..16....926914.37.';
+        assert.equal(solver.solveApi(input).solution, '135762984946381257728459613694517832812936745357824196473298561581673429269145378');
+        done();
     });
 });
