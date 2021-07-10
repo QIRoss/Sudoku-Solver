@@ -2,7 +2,7 @@
 
 const {solve, solveApi, checkApi} = require('../controllers/sudoku-solver.js');
 
-module.exports = function (app) {
+module.exports = app => {
 
   app.route('/api/check')
     .post((req, res) => {
